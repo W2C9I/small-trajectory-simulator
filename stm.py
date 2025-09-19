@@ -1,11 +1,7 @@
 import matplotlib
 matplotlib.use('TkAgg')
-
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.pyplot
-import scipy
-from scipy.ndimage import label
 
 angle = float(input("Введите угол: "))
 speed0 = float(input("Введите начальную скорость: "))
