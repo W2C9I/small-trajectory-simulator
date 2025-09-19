@@ -37,9 +37,9 @@ class Ballistics1(Tasks):
         t_ymax = None
 
         if roots[0] > roots[1]:
-            t_max = round(roots[0], 1)
+            t_max = roots[0]
         else:
-            t_max = round(roots[1], 1)
+            t_max = roots[1]
 
         if t_max <= 0:
             print("тело сразу же ударяется о землю, смысла нет")
@@ -63,19 +63,28 @@ class Ballistics1(Tasks):
         self.calculated_data['Y_max'] = Y_max
         self.calculated_data['X_max'] = X_max
         self.calculated_data['t_max'] = t_max
+        self.calculated_data['angle'] = self.angle
+        self.calculated_data['speed0'] = self.speed0
+        self.calculated_data['g'] = self.g
+
+
 
 
     def graph(self, all_results: List[Dict[str, Any]]):
         if not all_results:
             print("Нет данных")
             return
-        plt.figure(figsize=(100, 300))
+        plt.figure(figsize=(12, 7))
         for tdata in all_results:
-            plt.plot(tdata['X_val'], tdata['Y_val'])
+            plot_label = (f"Угол= {tdata.get('angle', '?')}°, " 
+                          f"v= {tdata.get('speed0', '?')}м/с, "
+                          f"g= {tdata.get('g', '?')} м/с^2")
+            plt.plot(tdata['X_val'], tdata['Y_val'], label=plot_label)
         plt.xlabel('Ось X')
         plt.ylabel('Ось Y')
         plt.grid(True)
         plt.gca().set_aspect('equal', adjustable='box')
+        plt.legend(loc='best')
         plt.show()
 
     def result(self):
@@ -83,4 +92,4 @@ class Ballistics1(Tasks):
         print("Максимальная высота подъема: ", round(self.calculated_data['Y_max'], 2))
         print("Координаты падения: (", round(self.calculated_data['X_max'], 2),
               "; ", 0, ")")
-        print("Время полета: ", self.calculated_data['t_max'])
+        print("Время полета: ", round(self.calculated_data['t_max'], 2))
