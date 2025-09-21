@@ -9,7 +9,9 @@ class Tasks:
     def intersections(self, all_results, ax):
         print("ЭТА ФУНКЦИЯ ДОЛЖНА БУДЕТ ПЕРЕЗАПИСАНА")
 
-    def graph(self, all_results):
+    def graph_static(self, all_results):
+        print("ЭТА ФУНКЦИЯ ДОЛЖНА БУДЕТ ПЕРЕЗАПИСАНА")
+    def graph_dynamic(self, all_results):
         print("ЭТА ФУНКЦИЯ ДОЛЖНА БУДЕТ ПЕРЕЗАПИСАНА")
     def result(self, all_results):
         print("ЭТА ФУНКЦИЯ ДОЛЖНА БУДЕТ ПЕРЕЗАПИСАНА")
